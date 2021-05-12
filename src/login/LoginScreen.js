@@ -1,6 +1,5 @@
 import React from 'react';
 import '../App.css';
-import logo from '../images/kisspng-star-citizen-cloud-imperium-games-video-game-elite-aegis-technologies-5b22081bc6b2e8.8073662.png';
 
 class LoginScreen extends React.Component {
 
