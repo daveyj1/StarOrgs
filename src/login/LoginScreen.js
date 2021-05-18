@@ -1,5 +1,7 @@
 import React from 'react';
-import '../App.css';
+import './Login.css';
+import LoginInput from './LoginComponents/LoginInput';
+import BackgroundVideo from '../images/space-flight.mp4';
 
 class LoginScreen extends React.Component {
 
@@ -8,28 +10,27 @@ class LoginScreen extends React.Component {
         this.state = { emailValue: '', passwordValue: '' };
     }
 
-    _onChangeEmailValue = (event) => {
-        this.setState({ emailValue: event.target.value})
-    }
-
-    _onChangePasswordValue = (event) => {
-        this.setState({ passwordValue: event.target.value})
+    _onChangeText = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
     }
 
     render() {
         return (
-            <div className={'Login-container'}>
-                <div className={'Login-logo-container'}>
-                    <p className={'Login-tagline'}>Citizen Corps</p>
-                    <p className={'Login-tagline-subText'}>Create a space for you organization or join an existing one.</p>
-                </div>
-                <div className={'Login-form-container'}>
-                    <form>
-                        <input type="text" value={this.state.emailValue} placeHolder={"Email"} onChange={this._onChangeEmailValue} />
-                    </form>
-                    <form>
-                        <input type="password" value={this.state.passwordValue} placeHolder={"Password"} onChange={this._onChangePasswordValue} />
-                    </form>
+            <div className={'Login-Screen-Container'}>
+                <video className='Login-VideoBackground' autoPlay loop muted>
+                    <source src={BackgroundVideo} type='video/mp4' />
+                </video>
+                <div className={'Login-screen-sub-container'}>
+                    <div>
+                        <p className={'Login-tagline'}>Citizen Corps</p>
+                    </div>
+                    <div className={'Login-inputs-container'}>
+                        <LoginInput customStyle={{ marginBottom: 15 }} name='emailValue' inputType='text' value={this.state.emailValue} placeHolderText='Enter Email' onChangeText={this._onChangeText} />
+                        <LoginInput name='passwordValue' inputType='password' value={this.state.passwordValue} placeHolderText='Enter Password' onChangeText={this._onChangeText} />
+                    </div>
+                    <div className={'Login-button'}>
+                        Login
+                    </div>
                 </div>
             </div>
         );
