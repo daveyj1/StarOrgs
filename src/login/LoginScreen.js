@@ -5,11 +5,15 @@ class LoginScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { emailValue: '' };
+        this.state = { emailValue: '', passwordValue: '' };
     }
 
     _onChangeEmailValue = (event) => {
         this.setState({ emailValue: event.target.value})
+    }
+
+    _onChangePasswordValue = (event) => {
+        this.setState({ passwordValue: event.target.value})
     }
 
     render() {
@@ -21,12 +25,10 @@ class LoginScreen extends React.Component {
                 </div>
                 <div className={'Login-form-container'}>
                     <form>
-                        email:
-                        <input type="text" value={this.state.emailValue} onChange={this._onChangeEmailValue} />
+                        <input type="text" value={this.state.emailValue} placeHolder={"Email"} onChange={this._onChangeEmailValue} />
                     </form>
                     <form>
-                        password :
-                        <input type="text" value={this.state.emailValue} onChange={this._onChangeEmailValue} />
+                        <input type="password" value={this.state.passwordValue} placeHolder={"Password"} onChange={this._onChangePasswordValue} />
                     </form>
                 </div>
             </div>
